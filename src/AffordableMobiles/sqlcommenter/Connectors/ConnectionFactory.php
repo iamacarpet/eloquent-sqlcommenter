@@ -29,11 +29,12 @@ class ConnectionFactory extends LaravelConnectionFactory
         }
 
         return match ($config['driver']) {
-            'mysql'  => new MySqlConnector(),
-            'pgsql'  => new PostgresConnector(),
-            'sqlite' => new SQLiteConnector(),
-            'sqlsrv' => new SqlServerConnector(),
-            default  => throw new \InvalidArgumentException("Unsupported driver [{$config['driver']}]."),
+            'mysql'   => new MySqlConnector(),
+            'mariadb' => new MariaDbConnector(),
+            'pgsql'   => new PostgresConnector(),
+            'sqlite'  => new SQLiteConnector(),
+            'sqlsrv'  => new SqlServerConnector(),
+            default   => throw new \InvalidArgumentException("Unsupported driver [{$config['driver']}]."),
         };
     }
 }
